@@ -387,5 +387,5 @@ function getModScreen () {
 	</html>`
 }; 
 
-// add module to main file 
-//export{ getWelcomeScreen, getModScreen }
+// set up exports for module
+module.exports = { getWelcomeScreen, getModScreen }

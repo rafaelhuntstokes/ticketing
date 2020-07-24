@@ -1,5 +1,4 @@
-//import * as htmlStuff from './htmlStuff.js'; 
-const htmlStuff = require('htmlStuff');
+const htmlStuff = require('./htmlStuff.js');
 const vscode = require('vscode');
 const fs = require('fs');
 
@@ -139,7 +138,7 @@ function ModuleAdmin () {
     }
 }}
 
-// add module to main file 
-export { Welcome }
+// set up exports for module 
+module.exports = { Welcome }
 
 
