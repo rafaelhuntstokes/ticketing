@@ -23,9 +23,10 @@ The important files are:
 
 * command Start Ticket from cmd pallet activates the extension. 
 
-## Known Issues
+## Known and Predicted Issues
 
-Table scroll issues (possibly) when adding lots of modules. 
+* Table scroll issues (possibly) when adding lots of modules. 
+* HTML file is rife with inline javascript. Will refactor all this to a separate fiel / constructors soon.
 
 ## Upcoming Tasks 
 * Adding more useful functionality to the module sessions. Implementing a calendar to select the date and times of lab session and save these in the ""database"".  
