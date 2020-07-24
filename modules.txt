@@ -1,0 +1,44 @@
+{
+ "modules": [
+  {
+   "aModuleName": "",
+   "bModuleCode": "",
+   "cModuleAdmins": "",
+   "dModuleTAs": "",
+   "eModuleStudents": "",
+   "fModuleReqType": "",
+   "gModuleGroups": "",
+   "hModuleHrs": ""
+  },
+  {
+   "aModuleName": "",
+   "bModuleCode": "",
+   "cModuleAdmins": "",
+   "dModuleTAs": "",
+   "eModuleStudents": "",
+   "fModuleReqType": "",
+   "gModuleGroups": "",
+   "hModuleHrs": ""
+  },
+  {
+   "aModuleName": "",
+   "bModuleCode": "",
+   "cModuleAdmins": "",
+   "dModuleTAs": "",
+   "eModuleStudents": "",
+   "fModuleReqType": "",
+   "gModuleGroups": "",
+   "hModuleHrs": ""
+  },
+  {
+   "aModuleName": "",
+   "bModuleCode": "",
+   "cModuleAdmins": "",
+   "dModuleTAs": "",
+   "eModuleStudents": "",
+   "fModuleReqType": "",
+   "gModuleGroups": "",
+   "hModuleHrs": ""
+  }
+ ]
+}
