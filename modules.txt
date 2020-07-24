@@ -1,44 +1,44 @@
 {
  "modules": [
   {
-   "aModuleName": "",
-   "bModuleCode": "",
-   "cModuleAdmins": "",
-   "dModuleTAs": "",
-   "eModuleStudents": "",
-   "fModuleReqType": "",
-   "gModuleGroups": "",
-   "hModuleHrs": ""
+   "aModuleName": "Intro to Compsci",
+   "bModuleCode": "COMPSCI101",
+   "cModuleAdmins": "Prof. Turing",
+   "dModuleTAs": "3",
+   "eModuleStudents": "100",
+   "fModuleReqType": "Help me! ",
+   "gModuleGroups": "3",
+   "hModuleHrs": "100"
   },
   {
-   "aModuleName": "",
-   "bModuleCode": "",
-   "cModuleAdmins": "",
-   "dModuleTAs": "",
-   "eModuleStudents": "",
-   "fModuleReqType": "",
-   "gModuleGroups": "",
-   "hModuleHrs": ""
+   "aModuleName": "Intro to Bioinformatics",
+   "bModuleCode": "BIOL1099",
+   "cModuleAdmins": "Prof. Crick",
+   "dModuleTAs": "3",
+   "eModuleStudents": "500",
+   "fModuleReqType": "content",
+   "gModuleGroups": "3",
+   "hModuleHrs": "500"
   },
   {
-   "aModuleName": "",
-   "bModuleCode": "",
-   "cModuleAdmins": "",
-   "dModuleTAs": "",
-   "eModuleStudents": "",
-   "fModuleReqType": "",
-   "gModuleGroups": "",
-   "hModuleHrs": ""
+   "aModuleName": "Particle Physics",
+   "bModuleCode": "PHAS4098",
+   "cModuleAdmins": "Ruben",
+   "dModuleTAs": "0",
+   "eModuleStudents": "50",
+   "fModuleReqType": "Difficult...",
+   "gModuleGroups": "1",
+   "hModuleHrs": "1000"
   },
   {
-   "aModuleName": "",
-   "bModuleCode": "",
-   "cModuleAdmins": "",
-   "dModuleTAs": "",
-   "eModuleStudents": "",
-   "fModuleReqType": "",
-   "gModuleGroups": "",
-   "hModuleHrs": ""
+   "aModuleName": "Quantum Field Theory",
+   "bModuleCode": "PHAS5099",
+   "cModuleAdmins": "Thorne",
+   "dModuleTAs": "0",
+   "eModuleStudents": "10",
+   "fModuleReqType": "Maths",
+   "gModuleGroups": "1",
+   "hModuleHrs": "30"
   }
  ]
 }
