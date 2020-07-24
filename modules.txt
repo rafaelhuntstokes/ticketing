@@ -1,44 +1,34 @@
 {
  "modules": [
   {
-   "aModuleName": "Intro to Compsci",
-   "bModuleCode": "COMPSCI101",
-   "cModuleAdmins": "Prof. Turing",
-   "dModuleTAs": "3",
-   "eModuleStudents": "100",
-   "fModuleReqType": "Help me! ",
-   "gModuleGroups": "3",
-   "hModuleHrs": "100"
-  },
-  {
-   "aModuleName": "Intro to Bioinformatics",
-   "bModuleCode": "BIOL1099",
-   "cModuleAdmins": "Prof. Crick",
+   "aModuleName": "Intro to Biology",
+   "bModuleCode": "BIOL1010",
+   "cModuleAdmins": "Watson & Crick",
    "dModuleTAs": "3",
    "eModuleStudents": "500",
-   "fModuleReqType": "content",
-   "gModuleGroups": "3",
+   "fModuleReqType": "Too boring . . .",
+   "gModuleGroups": "1",
    "hModuleHrs": "500"
   },
   {
-   "aModuleName": "Particle Physics",
-   "bModuleCode": "PHAS4098",
-   "cModuleAdmins": "Ruben",
-   "dModuleTAs": "0",
-   "eModuleStudents": "50",
-   "fModuleReqType": "Difficult...",
-   "gModuleGroups": "1",
-   "hModuleHrs": "1000"
+   "aModuleName": "Intro to Computer Science",
+   "bModuleCode": "COMPSCI1010",
+   "cModuleAdmins": "Alan Turing",
+   "dModuleTAs": "3",
+   "eModuleStudents": "100",
+   "fModuleReqType": "Too hard . . .",
+   "gModuleGroups": "3",
+   "hModuleHrs": "300"
   },
   {
-   "aModuleName": "Quantum Field Theory",
-   "bModuleCode": "PHAS5099",
-   "cModuleAdmins": "Thorne",
-   "dModuleTAs": "0",
-   "eModuleStudents": "10",
-   "fModuleReqType": "Maths",
+   "aModuleName": "Intro to Particle Physics",
+   "bModuleCode": "PHAS1099",
+   "cModuleAdmins": "Peter Higgs",
+   "dModuleTAs": "1",
+   "eModuleStudents": "20",
+   "fModuleReqType": "I'm stuck . . .",
    "gModuleGroups": "1",
-   "hModuleHrs": "30"
+   "hModuleHrs": "500"
   }
  ]
 }
