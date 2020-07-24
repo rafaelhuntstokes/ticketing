@@ -1,8 +1,7 @@
+//import * as htmlStuff from './htmlStuff.js'; 
 const htmlStuff = require('htmlStuff');
 const vscode = require('vscode');
 const fs = require('fs');
-const { createNoSubstitutionTemplateLiteral } = require('typescript');
-const { allowedNodeEnvironmentFlags } = require('process');
 
 function Welcome (context) {
     
@@ -53,18 +52,18 @@ function ModuleAdmin () {
             console.log('Success! Modules are: ' + JSON.stringify(fileObj.modules));
 
             return fileObj; 
-        }  
-        catch {
+        }
+        catch (e) {
             // failed to load as JSON object, so obj does not exist (first start-up)
             // create the required JSON struct required for later use 
             console.log('Failed! Creating JSON format -- first time startup --');
             var fileContent = '{"modules":[]}'; 
             fs.appendFileSync('modules.txt', fileContent); 
-            console.log('Ready to add new modules!')
+            console.log('Ready to add new modules!');
 
             // convert string to object in JSON format 
             fileContent = JSON.parse(fileContent); 
-        }; 
+        } 
 
         return fileContent; 
     }; 
@@ -141,6 +140,6 @@ function ModuleAdmin () {
 }}
 
 // add module to main file 
-module.exports = { Welcome }
+export { Welcome }
 
 

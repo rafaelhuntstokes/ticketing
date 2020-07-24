@@ -388,4 +388,4 @@ function getModScreen () {
 }; 
 
 // add module to main file 
-module.exports = { getWelcomeScreen, getModScreen }
+//export{ getWelcomeScreen, getModScreen }

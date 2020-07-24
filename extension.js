@@ -5,7 +5,7 @@ const vscode = require('vscode');
 // import html and class constructors for the webview 
 //const htmlStuff = require('htmlStuff.js'); 
 const constructors = require('constructors.js');
-
+//import * as constructors from './constructors.js';
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 
