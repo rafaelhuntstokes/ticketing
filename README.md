@@ -26,7 +26,7 @@ The important files are:
 ## Known and Predicted Issues
 
 * Table scroll issues (possibly) when adding lots of modules. 
-* HTML file is rife with inline javascript. Will refactor all this to a separate fiel / constructors soon.
+* HTML file is rife with inline javascript. Will refactor all this to a separate file / constructors soon.
 
 ## Upcoming Tasks 
 * Adding more useful functionality to the module sessions. Implementing a calendar to select the date and times of lab session and save these in the ""database"".  
