@@ -10,10 +10,10 @@ Currently features a 'module admin' screen, allowing the addition, removal and e
 
 The important files are: 
 
-htmlStuff.js      -- which provides the HTML code for the webview
-constructors.js   -- javascript file with the methods to add, remove and edit modules & perform first time setup of JSON """database"""
-extension.js      -- javascript file which activates extension 
-modules.txt       -- file which stores the JSON module data
+* htmlStuff.js      -- which provides the HTML code for the webview
+* constructors.js   -- javascript file with the methods to add, remove and edit modules & perform first time setup of JSON """database"""
+* extension.js      -- javascript file which activates extension 
+* modules.txt       -- file which stores the JSON module data
 
 ## Requirements
 
