@@ -4,9 +4,8 @@ A microsoft visual studio code extension providing a lab help-request ticketing 
 
 ## Features
 
-Currently features a 'module admin' screen, allowing the addition, removal and editing of lab courses. Data is saved in a JSON object format. 
+Currently features a 'module admin' screen, allowing the addition, removal and editing of lab courses. Data is saved in a JSON object format. Check the module_admin_screen.png for an image. 
 
-\!\[Module Admin Screen\]\(./module_admin_screen.png\)
 
 The important files are: 
 
