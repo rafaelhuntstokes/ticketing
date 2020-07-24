@@ -2,7 +2,7 @@
  "modules": [
   {
    "aModuleName": "Intro to Biology",
-   "bModuleCode": "BIOL1010",
+   "bModuleCode": "BIOL1011",
    "cModuleAdmins": "Watson & Crick",
    "dModuleTAs": "3",
    "eModuleStudents": "500",
@@ -16,7 +16,7 @@
    "cModuleAdmins": "Alan Turing",
    "dModuleTAs": "3",
    "eModuleStudents": "100",
-   "fModuleReqType": "Too hard . . .",
+   "fModuleReqType": "CAN I EDIT??",
    "gModuleGroups": "3",
    "hModuleHrs": "300"
   },
@@ -24,7 +24,7 @@
    "aModuleName": "Intro to Particle Physics",
    "bModuleCode": "PHAS1099",
    "cModuleAdmins": "Peter Higgs",
-   "dModuleTAs": "1",
+   "dModuleTAs": "10",
    "eModuleStudents": "20",
    "fModuleReqType": "I'm stuck . . .",
    "gModuleGroups": "1",

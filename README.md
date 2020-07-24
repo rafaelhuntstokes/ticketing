@@ -6,6 +6,9 @@ A microsoft visual studio code extension providing a lab help-request ticketing 
 
 Currently features a 'module admin' screen, allowing the addition, removal and editing of lab courses. Data is saved in a JSON object format. Check the module_admin_screen.png for an image. 
 
+* Users may click on any cell in the table to make edits easily. Press 'enter' when finished to save your changes. 
+* 'Add Module' button brings up a form to add module info, e.g. name, code, admins, num students ... etc. and saves 
+* Table displaying module info dynamically reloads to display new/edited/removed content 
 
 The important files are: 
 
@@ -22,9 +25,10 @@ The important files are:
 
 ## Known Issues
 
-Editable table cells are bugged.
+Table scroll issues (possibly) when adding lots of modules. 
 
-## Release Notes
+## Upcoming Tasks 
+* Adding more useful functionality to the module sessions. Implementing a calendar to select the date and times of lab session and save these in the ""database"".  
 
 
 -----------------------------------------------------------------------------------------------------------
