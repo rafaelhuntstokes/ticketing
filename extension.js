@@ -1,9 +1,4 @@
-
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-const vscode = require('vscode');
-// import html and class constructors for the webview 
-//const htmlStuff = require('htmlStuff.js'); 
+const vscode = require('vscode'); 
 const constructors = require('./constructors.js');
 
 // this method is called when your extension is activated
@@ -21,15 +16,6 @@ function activate(context) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with  registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('ticketing.helloWorld', function () {	
-		
-		// The code you place here will be executed every time your command is executed
-
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from ticketing!');
-		
-	});
-
 	// my attempt at adding a fresh new custom command to the extension! Seems to be working...
 	let newCommand = vscode.commands.registerCommand('ticketing.start', function () {
 		vscode.window.showInformationMessage("Activating ticketing system!");
@@ -43,7 +29,7 @@ function activate(context) {
 		var screen = new constructors.Welcome(context);
 	
 	});
-	context.subscriptions.push(disposable, newCommand);
+	context.subscriptions.push(newCommand);
 }
 exports.activate = activate;
 
