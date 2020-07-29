@@ -2,6 +2,8 @@ function getWelcomeScreen () {
 	return `<!DOCTYPE html>
 	<html lang="en">
 	<head>
+		<!-- Add icon library -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script>
 		const vscode = acquireVsCodeApi();
 		</script>
@@ -12,6 +14,26 @@ function getWelcomeScreen () {
 		<title>Module Manager</title>
 		
 		<style> 
+		.buttons {
+			position: absolute; 
+			top: 40% ;
+			left: 50%;
+			transform: translate(-50%, 0%);
+		}
+		/* Style buttons */
+		.btn {
+		  background-color: DodgerBlue; /* Blue background */
+		  border: none; /* Remove borders */
+		  color: white; /* White text */
+		  padding: 12px 16px; /* Some padding */
+		  font-size: 16px; /* Set a font size */
+		  cursor: pointer; /* Mouse pointer on hover */
+		}
+		
+		/* Darker background on mouse-over */
+		.btn:hover {
+		  background-color: RoyalBlue;
+		} 
 		body {
 			background-color: rgb(60,99,201);}
 
@@ -24,29 +46,35 @@ function getWelcomeScreen () {
 		
 		
 
-		button {
-			position: absolute; 
-			top: 45%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			background-color: rgb(51, 255, 255);
-			color: rgb(51, 54, 255);
-			border: border-width border-style border-color|initial|inherit;
-			border-color: rgb(51, 255, 255);
-		}
+		
 
 		</style>
 	</head>
 	
 	<body>
+		<div class="buttons">
+		<button class="btn" onclick="moduleAdd()"><i class="fa fa-key"></i> Admins</button>
+		<button class="btn"><i class="fa fa-user-circle"></i> TAs</button>
+		<button class="btn"><i class="fa fa-graduation-cap"></i> Students</button>
+		</div>
+
 		<h1>Welcome to the Lab Ticketing System</h1>
 
-		<button onclick="moduleAdd()">Module Admin</button>
-		<script>function moduleAdd() {
-			vscode.postMessage({command: "alert", text: "BUTTON PRESSED!"});
+		<script>
+			function moduleAdd() {
+			vscode.postMessage({command: 'modAdmin', text: "BUTTON PRESSED!"});
+			}
+
+			function taLogin() {
+				vscode.postMessage({command:'ta'})
 			}
 		</script> 
-	
+		
+		
+		
+		
+		
+		
 	</body>
 	</html>`
 };
@@ -55,6 +83,7 @@ function getModScreen () {
 	return `<!DOCTYPE html>
 	<html lang="en">
 	<head>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script>
 		const vscode = acquireVsCodeApi();
 		</script>
@@ -78,6 +107,7 @@ function getModScreen () {
 				document.getElementById('form1').style.display = 'none';
 				document.getElementById('button1').style.display = ''; 
 				document.getElementById('showData').style.display ='';
+				document.getElementById('back').style.display ='';
 			}
 		</script>
 
@@ -87,6 +117,7 @@ function getModScreen () {
 				document.getElementById('button1').style.display = 'none'; 
 				// hide the module table
 				document.getElementById('showData').style.display = 'none'; 
+				document.getElementById('back').style.display = 'none'; 
 			};
 		</script>
 
@@ -111,6 +142,28 @@ function getModScreen () {
 		<title>Module Manager</title>
 		
 		<style>
+		.buttons {
+			position: absolute; 
+			top: 40% ;
+			left: 50%;
+			transform: translate(-50%, 0%);
+		}
+		/* Style buttons */
+		.btn {
+		  background-color: DodgerBlue; /* Blue background */
+		  border: none; /* Remove borders */
+		  color: white; /* White text */
+		  padding: 12px 16px; /* Some padding */
+		  font-size: 16px; /* Set a font size */
+		  cursor: pointer; /* Mouse pointer on hover */
+		}
+		
+		/* Darker background on mouse-over */
+		.btn:hover {
+		  background-color: RoyalBlue;
+		} 
+		body {
+			background-color: rgb(60,99,201);}
 		.forms {
 			/* Center the form on the page */
 			
@@ -159,16 +212,7 @@ function getModScreen () {
 			transform: translate(-50%, -50%);
 		}
 
-		#button1 {
-			position: absolute; 
-			top: 45%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			background-color: rgb(51, 255, 255);
-			color: rgb(51, 54, 255);
-			border: border-width border-style border-color|initial|inherit;
-			border-color: rgb(51, 255, 255);
-		}
+		
 		#button2 {
 			position: relative;
 			left: 52%;
@@ -241,10 +285,16 @@ function getModScreen () {
 			</ul>
 		</div>
 
-		<button id="button1", onclick="dispForm()">Add Module</button>
+		<div class="buttons">
+		<button class="btn" id="back" onclick="back()"><i class="fa fa-backward "></i> Back</button>
+		<button class="btn" id="button1" onclick="dispForm()"><i class="fa fa-plus"></i> Add Module</button>
+		</div>
 		<p id="showData"></p>
-		
-
+		<script>
+			function back(){
+				vscode.postMessage({command: 'back'}); 
+			} 
+		</script>
 		<script>
 		console.log('outside func call');
 		function createTab (tableData, flag) {
@@ -312,11 +362,11 @@ function getModScreen () {
 				// add remove module buttons to each row in last column
 				var btnCol = trInternal.insertCell(-1); 
 				var btn = document.createElement('button');
-				btn.setAttribute('class', 'rmBtn'); 
+				btn.setAttribute('class', 'btn'); 
 				btn.setAttribute('type', 'button');
 				btn.setAttribute('id', i); 
 				btn.setAttribute('onclick', 'rmData(id)');  
-				btn.innerHTML = 'Remove';
+				btn.innerHTML = '<i class="fa fa-minus"> Remove</i>';
 				btnCol.appendChild(btn); 
 			
 			}	
@@ -387,5 +437,21 @@ function getModScreen () {
 	</html>`
 }; 
 
+function getTaLogin() {
+	return `<!DOCTYPE html> 
+	<head>
+	<script>
+		const vscode = acquireVsCodeApi();
+	</script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		body {
+			background-color: rgb(60,99,201);}
+	</style>
+
+	</head>
+	<body></body></html>`
+}
+
 // set up exports for module
-module.exports = { getWelcomeScreen, getModScreen }
+module.exports = { getWelcomeScreen, getModScreen, getTaLogin }

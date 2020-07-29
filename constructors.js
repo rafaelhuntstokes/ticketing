@@ -12,7 +12,7 @@ function Welcome (context) {
     screen.webview.html = htmlStuff.getWelcomeScreen();
 
     // handle recieving messages from the webview, which creates new screen objects depending on the button press 
-    screen.webview.onDidReceiveMessage(message => {switch(message.command){case 'alert': var admin = new ModuleAdmin(); 
+    screen.webview.onDidReceiveMessage(message => {switch(message.command){case 'modAdmin': var admin = new ModuleAdmin(); 
     return;}}, undefined, context.subscriptions); 
 
 // module admin object 
@@ -34,6 +34,10 @@ function ModuleAdmin () {
 
     // listen for edit module call 
     screen.webview.onDidReceiveMessage(message => {switch(message.command){case 'edit': this.edit(message.info); 
+    return;}}, undefined, context.subscriptions); 
+
+    // listen for go back navigation cloick 
+    screen.webview.onDidReceiveMessage(message => {switch(message.command){case 'back': screen.webview.html = htmlStuff.getWelcomeScreen(); 
     return;}}, undefined, context.subscriptions); 
 
     // module screen methods to add, remove, load, save and display modules on the screen

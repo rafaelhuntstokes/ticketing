@@ -1,54 +1,34 @@
 {
  "modules": [
   {
-   "aModuleName": "TEST",
-   "bModuleCode": "TEST",
-   "cModuleAdmins": "TEST",
-   "dModuleTAs": "TEST",
-   "eModuleStudents": "TEST",
-   "fModuleReqType": "ALPHA",
-   "gModuleGroups": "TEST",
-   "hModuleHrs": "TEST"
+   "aModuleName": "Introduction to Biochemistry",
+   "bModuleCode": "BIOL1001",
+   "cModuleAdmins": "Crick",
+   "dModuleTAs": "5",
+   "eModuleStudents": "1000",
+   "fModuleReqType": "DNA . . .",
+   "gModuleGroups": "1",
+   "hModuleHrs": "500"
   },
   {
-   "aModuleName": "TEST",
-   "bModuleCode": "TEST",
-   "cModuleAdmins": "TEST",
-   "dModuleTAs": "TEST",
-   "eModuleStudents": "TEST",
-   "fModuleReqType": "TEST",
-   "gModuleGroups": "TEST",
-   "hModuleHrs": "TEST"
+   "aModuleName": "ESTAD",
+   "bModuleCode": "I",
+   "cModuleAdmins": "UG",
+   "dModuleTAs": "IUG",
+   "eModuleStudents": "IUG",
+   "fModuleReqType": "IUG",
+   "gModuleGroups": "IUG",
+   "hModuleHrs": "GIU"
   },
   {
-   "aModuleName": "TEST",
-   "bModuleCode": "TEST",
-   "cModuleAdmins": "TEST",
-   "dModuleTAs": "TEST",
-   "eModuleStudents": "TEST",
-   "fModuleReqType": "TEST",
-   "gModuleGroups": "TEST",
-   "hModuleHrs": "TEST"
-  },
-  {
-   "aModuleName": "TEST",
-   "bModuleCode": "TEST",
-   "cModuleAdmins": "BETA",
-   "dModuleTAs": "TEST",
-   "eModuleStudents": "TEST",
-   "fModuleReqType": "TEST",
-   "gModuleGroups": "TEST",
-   "hModuleHrs": "TEST"
-  },
-  {
-   "aModuleName": "TEST",
-   "bModuleCode": "TEST",
-   "cModuleAdmins": "TEST",
-   "dModuleTAs": "TEST",
-   "eModuleStudents": "TEST",
-   "fModuleReqType": "TEST",
-   "gModuleGroups": "OMEGA",
-   "hModuleHrs": "TEST"
+   "aModuleName": "TEST2",
+   "bModuleCode": "TEST2",
+   "cModuleAdmins": "TEST2",
+   "dModuleTAs": "TEST2",
+   "eModuleStudents": "TEST2",
+   "fModuleReqType": "TEST2",
+   "gModuleGroups": "TEST2",
+   "hModuleHrs": "TEST2"
   }
  ]
 }
