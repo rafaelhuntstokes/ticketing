@@ -54,7 +54,7 @@ function getWelcomeScreen () {
 	<body>
 		<div class="buttons">
 		<button class="btn" onclick="moduleAdd()"><i class="fa fa-key"></i> Admins</button>
-		<button class="btn"><i class="fa fa-user-circle"></i> TAs</button>
+		<button class="btn" onclick="taLogin()"><i class="fa fa-user-circle"></i> TAs</button>
 		<button class="btn"><i class="fa fa-graduation-cap"></i> Students</button>
 		</div>
 
@@ -66,7 +66,8 @@ function getWelcomeScreen () {
 			}
 
 			function taLogin() {
-				vscode.postMessage({command:'ta'})
+				console.log('ta button pressed!');
+				vscode.postMessage({command:'ta'});
 			}
 		</script> 
 		
@@ -447,10 +448,30 @@ function getTaLogin() {
 	<style>
 		body {
 			background-color: rgb(60,99,201);}
+		
+		.login {
+			display: none; /* Hidden by default */
+  			position: fixed; /* Stay in place */
+			z-index: 1; /* Sit on top */
+			left: 0;
+			top: 0;
+			width: 100%; /* Full width */
+			height: 100%; /* Full height */
+			overflow: auto; /* Enable scroll if needed */
+			background-color: rgb(0,0,0); /* Fallback color */
+			background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+			padding-top: 60px;
+		}
 	</style>
-
 	</head>
-	<body></body></html>`
+
+	<body>
+	
+		<h1>TA Login Screen!</h1>
+	
+	</body>
+	
+	</html>`
 }
 
 // set up exports for module

@@ -15,6 +15,10 @@ function Welcome (context) {
     screen.webview.onDidReceiveMessage(message => {switch(message.command){case 'modAdmin': var admin = new ModuleAdmin(); 
     return;}}, undefined, context.subscriptions); 
 
+    // display TA login form when TA button clicked 
+    screen.webview.onDidReceiveMessage(message => {switch(message.command){case 'ta': screen.webview.html = htmlStuff.getTaLogin(); 
+    return;}}, undefined, context.subscriptions); 
+
 // module admin object 
 function ModuleAdmin () {
 
