@@ -1,4 +1,4 @@
-const htmlStuff = require('htmlStuff');
+const htmlStuff = require('./htmlStuff');
 const vscode = require('vscode');
 const fs = require('fs');
 const { createNoSubstitutionTemplateLiteral } = require('typescript');
@@ -47,19 +47,19 @@ function ModuleAdmin () {
         // check if modules JSON object exists and if yes load it up
         try {
             console.log('Attempting to load modules. . .');
-            var fileContent = fs.readFileSync('modules.txt').toString();
+            var fileContent = fs.readFileSync('./modules.txt').toString();
             console.log('parsing JSON file to JS object. . .');
             var fileObj = JSON.parse(fileContent);
             console.log('Success! Modules are: ' + JSON.stringify(fileObj.modules));
 
             return fileObj; 
         }  
-        catch {
+        catch(e) {
             // failed to load as JSON object, so obj does not exist (first start-up)
             // create the required JSON struct required for later use 
             console.log('Failed! Creating JSON format -- first time startup --');
             var fileContent = '{"modules":[]}'; 
-            fs.appendFileSync('modules.txt', fileContent); 
+            fs.appendFileSync('./modules.txt', fileContent); 
             console.log('Ready to add new modules!')
 
             // convert string to object in JSON format 
@@ -78,7 +78,7 @@ function ModuleAdmin () {
         console.log('writing new file ...'); 
 
         // write updated modules list to file 
-        fs.writeFileSync('modules.txt', JSON.stringify(this.modulesList, null, ' ')); 
+        fs.writeFileSync('./modules.txt', JSON.stringify(this.modulesList, null, ' ')); 
 
         // send message to webview to update the displayed table with new information 
         
@@ -95,7 +95,7 @@ function ModuleAdmin () {
         this.modulesList.modules[info[0]][info[1]] = info[2]; 
         
         // save updates 
-        fs.writeFileSync('modules.txt', JSON.stringify(this.modulesList, null, ' ')); 
+        fs.writeFileSync('./modules.txt', JSON.stringify(this.modulesList, null, ' ')); 
 
         // redraw table 
         screen.webview.postMessage({command: 'drawTab', info: this.modulesList}); 
@@ -110,7 +110,7 @@ function ModuleAdmin () {
         console.log('length: ' + this.modulesList.modules.length);
         // update the JSON file and redraw table 
         // write updated modules list to file 
-        fs.writeFileSync('modules.txt', JSON.stringify(this.modulesList, null, ' ')); 
+        fs.writeFileSync('./modules.txt', JSON.stringify(this.modulesList, null, ' ')); 
 
         // send message to webview to update the displayed table with new information 
         if (this.modulesList.modules.length < 1){

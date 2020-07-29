@@ -4,7 +4,7 @@
 const vscode = require('vscode');
 // import html and class constructors for the webview 
 //const htmlStuff = require('htmlStuff.js'); 
-const constructors = require('constructors.js');
+const constructors = require('./constructors.js');
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -35,7 +35,8 @@ function activate(context) {
 		vscode.window.showInformationMessage("Activating ticketing system!");
 		
 		// change the random working directory location to be this extension 
-		process.chdir('c:/Users/Shadowbiscuit/Desktop/ticketing'); 
+		//process.chdir('c:/Users/Shadowbiscuit/Desktop/ticketing'); 
+		process.chdir('./Desktop/ticketing'); 
 		console.log("Current working dir: " + process.cwd())
 
 		// create instance of webview welcome screen OBJECT
