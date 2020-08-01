@@ -146,6 +146,7 @@ function getModScreen () {
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script>
 		const vscode = acquireVsCodeApi();
+		
 		</script>
 
 		<script>
@@ -168,10 +169,8 @@ function getModScreen () {
 				document.getElementById('button1').style.display = ''; 
 				document.getElementById('showData').style.display ='';
 				document.getElementById('back').style.display ='';
-			}
-		</script>
+			};
 
-		<script>
 			function dispForm () {
 				document.getElementById('form1').style.display = '';
 				document.getElementById('button1').style.display = 'none'; 
@@ -179,6 +178,53 @@ function getModScreen () {
 				document.getElementById('showData').style.display = 'none'; 
 				document.getElementById('back').style.display = 'none'; 
 			};
+
+			function dispTAform (moduleData) {
+				// hide other forms on the screen 
+				document.getElementById('showData').style.display = 'none';
+				document.getElementById('buttonBar').style.display ='none';
+				document.getElementById('taForm').style.display ='';
+
+				// fetch information on the currently available modules 
+				window.addEventListener('message', event => {
+					var message = event.data; 
+					
+					switch (message.command) {
+						
+						case 'fillData': 
+						var moduleData = message.info; 
+						var enrollmentOptions = [];
+						var form = document.getElementById('taForm');
+						for (i in moduleData.modules){
+							var modName = moduleData.modules[i].aModuleName;
+							enrollmentOptions.push(modName);
+
+							// add checkboxes for possible module enrollments
+							var newLine = document.createElement('li');
+							var option = document.createElement('input');
+							option.setAttribute('type', 'checkbox');
+							option.setAttribute('id', i+1);
+
+							var label = document.createElement('label');
+							label.setAttribute('id', i);
+							label.setAttribute('for', i+1);
+							label.appendChild(document.createTextNode(modName));
+							newLine.appendChild(label);
+							newLine.appendChild(option);
+							form.appendChild(newLine);
+						}
+						// add a submit button
+						var submit = document.createElement('button');
+						submit.setAttribute('id', 'submit');
+						submit.setAttribute('class', 'btn fa fa-plus');
+						
+						form.appendChild(submit);
+		
+						
+					}
+				});
+				vscode.postMessage({command: 'fetchData'});
+			}
 		</script>
 
 		<script>
@@ -226,7 +272,6 @@ function getModScreen () {
 			background-color: rgb(60,99,201);}
 		.forms {
 			/* Center the form on the page */
-			
 			width: 400px;
 			position: absolute; 
 			top: 400px;
@@ -303,6 +348,19 @@ function getModScreen () {
 	
 	<body>
 		<h1 id="heading">Welcome to the Module Admin Screen</h1>
+		<div class="forms" id="taForm" style="display:none">
+			<ul>
+				<li>
+					<h3>Input new TA Username</h3>
+				<li>
+					<label for="name">TA Username:</label>
+					<input type="text" id="taName">
+				</li>
+				<li>
+					<h3>Select Modules for enrollment: </h3>
+				</li>
+			</ul>
+		</div>
 		
 		<div class = "forms" id="form1", style="display:none">
 			<ul>
@@ -345,9 +403,10 @@ function getModScreen () {
 			</ul>
 		</div>
 
-		<div class="buttons">
-		<button class="btn" id="back" onclick="back()"><i class="fa fa-backward "></i> Back</button>
-		<button class="btn" id="button1" onclick="dispForm()"><i class="fa fa-plus"></i> Add Module</button>
+		<div id="buttonBar" class="buttons">
+			<button class="btn" id="back" onclick="back()"><i class="fa fa-backward "></i> Back</button>
+			<button class="btn" id="button1" onclick="dispForm()"><i class="fa fa-plus"></i> Add Module</button>
+			<button class="btn" id="addTA" onclick="dispTAform()"><i class="fa fa-address-book"></i> Add TA</button> 
 		</div>
 		<p id="showData"></p>
 		<script>

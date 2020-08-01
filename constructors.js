@@ -40,8 +40,12 @@ function ModuleAdmin () {
     screen.webview.onDidReceiveMessage(message => {switch(message.command){case 'edit': this.edit(message.info); 
     return;}}, undefined, context.subscriptions); 
 
-    // listen for go back navigation cloick 
+    // listen for go back navigation click 
     screen.webview.onDidReceiveMessage(message => {switch(message.command){case 'back': screen.webview.html = htmlStuff.getWelcomeScreen(); 
+    return;}}, undefined, context.subscriptions); 
+
+    // listen for request for possible modules to enrol TA to 
+    screen.webview.onDidReceiveMessage(message => {switch(message.command){case 'fetchData': screen.webview.postMessage({command: 'fillData', info: this.modulesList}); ; 
     return;}}, undefined, context.subscriptions); 
 
     // module screen methods to add, remove, load, save and display modules on the screen
