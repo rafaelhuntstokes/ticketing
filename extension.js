@@ -21,8 +21,8 @@ function activate(context) {
 		vscode.window.showInformationMessage("Activating ticketing system!");
 		
 		// change the random working directory location to be this extension 
-		//process.chdir('c:/Users/Shadowbiscuit/Desktop/ticketing'); 
-		process.chdir('./Desktop/ticketing'); 
+		process.chdir('c:/Users/Shadowbiscuit/Desktop/ticketing'); 
+		//process.chdir('./Desktop/ticketing'); 
 		console.log("Current working dir: " + process.cwd())
 
 		// create instance of webview welcome screen OBJECT

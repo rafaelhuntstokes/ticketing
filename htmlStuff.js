@@ -44,7 +44,56 @@ function getWelcomeScreen () {
 			transform: translate(-50%, -50%);
 			color: white;}
 		
-		
+		.modal {
+			display: none; 
+			position: fixed;
+			z-index: 1; 
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto; 
+			background-color: rgb(0,0,0);
+			background-color: rgba(0,0,0,0.4);
+			padding-top: 60px;
+		}
+
+		.modal-content{
+			background-color: #fefefe;
+			margin: 5px auto; 
+			border: 1px solid #888;
+			width: 80%;
+		}
+
+		.close {
+			position: absolute;
+			right: 25px;
+			top: 0;
+			color: #000;
+			font-size: 35px;
+			font-weight: bold;
+		}
+
+		.close:hover,
+		.close:focus {
+			color: red;
+			cursor: pointer;
+		}
+
+		.animate {
+			-webkit-animation: animatezoom 0.6s;
+			animation: animatezoom 0.6s
+		}
+
+		@-webkit-keyframes animatezoom {
+			from {-webkit-transform: scale(0)}
+			to {-webkit-transform: scale(1)}
+		}
+
+		@keyframes animatezoom {
+			from {transform: scale(0)}
+			to {-webkit-transform: scale(1)}
+		}
 
 		
 
@@ -54,7 +103,7 @@ function getWelcomeScreen () {
 	<body>
 		<div class="buttons">
 		<button class="btn" onclick="moduleAdd()"><i class="fa fa-key"></i> Admins</button>
-		<button class="btn" onclick="taLogin()"><i class="fa fa-user-circle"></i> TAs</button>
+		<button class="btn" onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-user-circle"></i> TAs</button>
 		<button class="btn"><i class="fa fa-graduation-cap"></i> Students</button>
 		</div>
 
@@ -71,10 +120,20 @@ function getWelcomeScreen () {
 			}
 		</script> 
 		
-		
-		
-		
-		
+		<div id="id01" class="modal">
+			<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Login">&times;</span>
+			<form class="modal-content animate">
+				<div class="container">
+					<h2 style="color: rgb(60,99,201)">TA Login Portal</h2>
+					<label for="uname" style="color:rgb(60,99,201)"><b>Username</b></label>
+					<input type="text" placeholder="Enter Username" name="uname" required>
+					<button class="btn"><i class="fa fa-bolt"</i>Login</button>
+				</div>
+				<div class="container" style="background-color:#f1f1f1">
+					<button type="button" onclick="document.getElementById('id01').style.display='none'" class="btn"><i class="fa fa-undo"></i>Cancel</button>
+				</div>
+			</form>
+		</div>
 		
 	</body>
 	</html>`
@@ -438,29 +497,7 @@ function getModScreen () {
 	</html>`
 }; 
 
-function getTaLogin() {
-	return `<!DOCTYPE html> 
-	<head>
-	<script>
-		const vscode = acquireVsCodeApi();
-	</script>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<style>
-		body {
-			background-color: rgb(60,99,201);}
-		
-		
-	</style>
-	</head>
 
-	<body>
-	
-		<h1>TA Login Screen!</h1>
-	
-	</body>
-	
-	</html>`
-}
 
 // set up exports for module
-module.exports = { getWelcomeScreen, getModScreen, getTaLogin }
+module.exports = { getWelcomeScreen, getModScreen }
