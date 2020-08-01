@@ -145,11 +145,19 @@ function getModScreen () {
 	<head>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script>
-		const vscode = acquireVsCodeApi();
+			const vscode = acquireVsCodeApi();
 		
-		</script>
+			// fetch information on the currently available modules 
+			window.addEventListener('message', event => {
+				var message = event.data; 
+					
+				switch (message.command) {
+						
+					case 'fillData': 
+					createTAForm(message.info);
+				}
+			});
 
-		<script>
 			function submit () {
 				var Module = {
 				aModuleName     : document.getElementById('name').value,
@@ -169,6 +177,7 @@ function getModScreen () {
 				document.getElementById('button1').style.display = ''; 
 				document.getElementById('showData').style.display ='';
 				document.getElementById('back').style.display ='';
+				document.getElementById('addTA').style.display = ''; 
 			};
 
 			function dispForm () {
@@ -176,7 +185,8 @@ function getModScreen () {
 				document.getElementById('button1').style.display = 'none'; 
 				// hide the module table
 				document.getElementById('showData').style.display = 'none'; 
-				document.getElementById('back').style.display = 'none'; 
+				document.getElementById('back').style.display = 'none';
+				document.getElementById('addTA').style.display = 'none'; 
 			};
 
 			function dispTAform (moduleData) {
@@ -184,47 +194,72 @@ function getModScreen () {
 				document.getElementById('showData').style.display = 'none';
 				document.getElementById('buttonBar').style.display ='none';
 				document.getElementById('taForm').style.display ='';
-
-				// fetch information on the currently available modules 
-				window.addEventListener('message', event => {
-					var message = event.data; 
-					
-					switch (message.command) {
-						
-						case 'fillData': 
-						var moduleData = message.info; 
-						var enrollmentOptions = [];
-						var form = document.getElementById('taForm');
-						for (i in moduleData.modules){
-							var modName = moduleData.modules[i].aModuleName;
-							enrollmentOptions.push(modName);
-
-							// add checkboxes for possible module enrollments
-							var newLine = document.createElement('li');
-							var option = document.createElement('input');
-							option.setAttribute('type', 'checkbox');
-							option.setAttribute('id', i+1);
-
-							var label = document.createElement('label');
-							label.setAttribute('id', i);
-							label.setAttribute('for', i+1);
-							label.appendChild(document.createTextNode(modName));
-							newLine.appendChild(label);
-							newLine.appendChild(option);
-							form.appendChild(newLine);
-						}
-						// add a submit button
-						var submit = document.createElement('button');
-						submit.setAttribute('id', 'submit');
-						submit.setAttribute('class', 'btn fa fa-plus');
-						
-						form.appendChild(submit);
-		
-						
-					}
-				});
 				vscode.postMessage({command: 'fetchData'});
+			};
+
+			function hideTaForm () {
+				document.getElementById('showData').style.display = '';
+				document.getElementById('buttonBar').style.display ='';
+				document.getElementById('taForm').style.display='none';
+				var taForm = document.getElementById('taContainer');
+				taForm.parentNode.removeChild(taForm);
 			}
+			function createTAForm(moduleData) {
+				var enrollmentOptions = [];
+				var form = document.getElementById('taForm');
+				var container = document.createElement('div');
+				container.id = 'taContainer';
+
+				for (i in moduleData.modules){
+					var modName = moduleData.modules[i].aModuleName;
+					enrollmentOptions.push(modName);
+
+					// add checkboxes for possible module enrollments
+					var newLine = document.createElement('li');
+					var option = document.createElement('input');
+					option.setAttribute('type', 'checkbox');
+					option.setAttribute('id', i+1);
+					option.setAttribute('value', modName);
+					option.setAttribute('name', 'modules');
+
+					var label = document.createElement('label');
+					label.setAttribute('id', i);
+					label.setAttribute('for', i+1);
+					label.appendChild(document.createTextNode(modName));
+					newLine.appendChild(label);
+					newLine.appendChild(option);
+					container.appendChild(newLine);
+				}
+
+				// add a submit button
+				var buttons = document.createElement('div');
+				var submit = document.createElement('button');
+				submit.setAttribute('id', 'submit');
+				submit.setAttribute('class', 'btn fa fa-plus');
+				submit.setAttribute('onclick', 'getSelected()');
+				buttons.appendChild(submit);	
+
+				// add a cancel button 
+				var cancel = document.createElement('button');
+				cancel.setAttribute('id', 'cancel');
+				cancel.setAttribute('class', 'btn fa fa-undo');
+				cancel.setAttribute('onclick', 'hideTaForm()');
+				buttons.appendChild(cancel);
+
+				container.appendChild(buttons);
+
+				form.appendChild(container);
+			};
+
+			function getSelected () {
+				var selection = document.querySelectorAll('input[name="modules"]:checked');
+				var selected = [];
+				selection.forEach((checkbox) => {
+					selected.push(checkbox.value);
+				});
+
+				console.log(selected);	
+			};
 		</script>
 
 		<script>
@@ -254,6 +289,7 @@ function getModScreen () {
 			left: 50%;
 			transform: translate(-50%, 0%);
 		}
+
 		/* Style buttons */
 		.btn {
 		  background-color: DodgerBlue; /* Blue background */
@@ -348,6 +384,7 @@ function getModScreen () {
 	
 	<body>
 		<h1 id="heading">Welcome to the Module Admin Screen</h1>
+		
 		<div class="forms" id="taForm" style="display:none">
 			<ul>
 				<li>
