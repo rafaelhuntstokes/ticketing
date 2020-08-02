@@ -1,44 +1,24 @@
 {
  "modules": [
   {
-   "aModuleName": "Introduction to Biochemistry",
-   "bModuleCode": "BIOL1001",
-   "cModuleAdmins": "Crick",
-   "dModuleTAs": "5",
-   "eModuleStudents": "200",
-   "fModuleReqType": "DNA . . .",
-   "gModuleGroups": "1",
-   "hModuleHrs": "500"
-  },
+   "aModuleName": "TEST",
+   "bModuleCode": "TEST",
+   "cModuleAdmins": "TEST",
+   "dModuleTAs": [
+    "Rafael"
+   ],
+   "eModuleStudents": "TEST",
+   "fModuleReqType": "TEST",
+   "gModuleGroups": "TEST",
+   "hModuleHrs": "TEST"
+  }
+ ],
+ "TAs": [
   {
-   "aModuleName": "Quantum Field Theory",
-   "bModuleCode": "PHAS1009",
-   "cModuleAdmins": "Feynman",
-   "dModuleTAs": "3",
-   "eModuleStudents": "20",
-   "fModuleReqType": "Too hard ...",
-   "gModuleGroups": "1",
-   "hModuleHrs": "500"
-  },
-  {
-   "aModuleName": "Particle Physics",
-   "bModuleCode": "PHAS1069",
-   "cModuleAdmins": "Higgs",
-   "dModuleTAs": "1",
-   "eModuleStudents": "35",
-   "fModuleReqType": "Maths ...",
-   "gModuleGroups": "1",
-   "hModuleHrs": "500"
-  },
-  {
-   "aModuleName": "Introduction to Python",
-   "bModuleCode": "COMPSCI1088",
-   "cModuleAdmins": "Turing",
-   "dModuleTAs": "3",
-   "eModuleStudents": "250",
-   "fModuleReqType": "Bugs ...",
-   "gModuleGroups": "1",
-   "hModuleHrs": "500"
+   "userName": "Rafael",
+   "enrolled": [
+    "TEST"
+   ]
   }
  ]
 }

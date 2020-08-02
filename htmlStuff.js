@@ -163,7 +163,7 @@ function getModScreen () {
 				aModuleName     : document.getElementById('name').value,
 				bModuleCode     : document.getElementById('code').value,
 				cModuleAdmins   : document.getElementById('admins').value,
-				dModuleTAs      : document.getElementById('TAs').value,
+				dModuleTAs      : [],
 				eModuleStudents : document.getElementById('stud').value,
 				fModuleReqType  : document.getElementById('reqType').value,
 				gModuleGroups   : document.getElementById('groups').value,
@@ -253,12 +253,15 @@ function getModScreen () {
 
 			function getSelected () {
 				var selection = document.querySelectorAll('input[name="modules"]:checked');
+				var userName  = document.getElementById('taName').value; 
 				var selected = [];
 				selection.forEach((checkbox) => {
 					selected.push(checkbox.value);
 				});
 
-				console.log(selected);	
+				vscode.postMessage({command: "registerNew", user: userName, mods: selected});
+				// handle the UI 
+				hideTaForm();	
 			};
 		</script>
 
