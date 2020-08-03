@@ -120,23 +120,27 @@ function ModuleAdmin () {
         console.log('remove index: ' + info); 
 
         // remove desired module from the JSON file list
+        // find module name to be removed
+        var name = this.modulesList.modules[info].aModuleName
+        console.log('Name of module to remove: ' + name);
+        
+        // remove module from modules list 
         this.modulesList.modules.splice(info, 1);
 
-        // find which TAs are assigned and remove module from their 'enrolled' attribute
-        var TAEnrolled = this.modulesList.modules[info].dModuleTAs 
-        console.log('TA index to remove is: ' + TAEnrolled);
-        for (var i in TAEnrolled) {
-            // loop through all TAs found and remove module from their entries
-            // I hate nested loops but it's the simplest method ... 
-            for (var j in this.modulesList.TAs){
-                if (TAEnrolled[i] == this.modulesList.TAs[j].userName){
-                    // remove module from TA listing 
-                    var rmvIDx = this.modulesList.TAs[j].enrolled.indexOf(this.modulesList.modules[info].aModuleName);
-                    this.modulesList.TAs[j].enrolled.splice(rmvIDx,1);
-                }
-            } 
+        // obtain list of TAs
+        var TAs = this.modulesList.TAs;
+        for (var i in TAs){
+            if (TAs[i].enrolled.includes(name)){
+
+                console.log('Removing ' + JSON.stringify(TAs[i].userName) + ' from module ' + name);
+                // find index of module in enrolled list 
+                var idx = TAs[i].enrolled.indexOf(name);
+                
+                // remove it 
+                this.modulesList.TAs[i].enrolled.splice(idx, 1); 
+            }
         } 
-        console.log('length: ' + this.modulesList.modules.length);
+
         // update the JSON file and redraw table 
         // write updated modules list to file 
         fs.writeFileSync('./modules.txt', JSON.stringify(this.modulesList, null, ' ')); 
@@ -158,7 +162,7 @@ function ModuleAdmin () {
         // check if username already exists 
         // loop through all the TAs
         var exists = 'false'; 
-        console.log('Input username: ' +  userName + '\n Existing names: ' + JSON.stringify(Object.keys(this.modulesList.TAs)));
+        console.log('Input username: ' +  userName + '\n Existing names: ' + JSON.stringify(this.modulesList.TAs));
         for (var i in this.modulesList.TAs) {
             if (this.modulesList.TAs[i].userName == userName){
                 //if yes, append module name to list 
