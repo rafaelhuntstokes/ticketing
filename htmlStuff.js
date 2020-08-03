@@ -112,12 +112,13 @@ function getWelcomeScreen () {
 		<script>
 			function moduleAdd() {
 			vscode.postMessage({command: 'modAdmin', text: "BUTTON PRESSED!"});
-			}
+			};
 
 			function taLogin() {
-				console.log('ta button pressed!');
-				vscode.postMessage({command:'ta'});
-			}
+				var uname = document.getElementById('taUName').value;
+				console.log('login value: ' + uname);
+				vscode.postMessage({command: 'loginTA', userName: uname});
+			};
 		</script> 
 		
 		<div id="id01" class="modal">
@@ -126,8 +127,8 @@ function getWelcomeScreen () {
 				<div class="container">
 					<h2 style="color: rgb(60,99,201)">TA Login Portal</h2>
 					<label for="uname" style="color:rgb(60,99,201)"><b>Username</b></label>
-					<input type="text" placeholder="Enter Username" name="uname" required>
-					<button class="btn"><i class="fa fa-bolt"</i>Login</button>
+					<input type="text" placeholder="Enter Username" name="uname" id="taUName" required>
+					<button class="btn" onclick="taLogin()"><i class="fa fa-bolt"></i>Login</button>
 				</div>
 				<div class="container" style="background-color:#f1f1f1">
 					<button type="button" onclick="document.getElementById('id01').style.display='none'" class="btn"><i class="fa fa-undo"></i>Cancel</button>
@@ -596,7 +597,18 @@ function getModScreen () {
 	</html>`
 }; 
 
+function getTaScreen() {
+	return `<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<h1> Welcome! </h1>
+		</head>
+
+		<body>
+		</body>
+	</html>`; 
+}
 
 
 // set up exports for module
-module.exports = { getWelcomeScreen, getModScreen }
+module.exports = { getWelcomeScreen, getModScreen, getTaScreen }

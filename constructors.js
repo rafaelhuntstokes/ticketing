@@ -15,9 +15,47 @@ function Welcome (context) {
     screen.webview.onDidReceiveMessage(message => {switch(message.command){case 'modAdmin': var admin = new ModuleAdmin(); 
     return;}}, undefined, context.subscriptions); 
 
-    // display TA login form when TA button clicked 
-    screen.webview.onDidReceiveMessage(message => {switch(message.command){case 'ta': screen.webview.html = htmlStuff.getTaLogin(); 
+    // verify TA login details 
+    screen.webview.onDidReceiveMessage(message => {switch(message.command){case 'loginTA': this.verifyTa(message.userName); 
     return;}}, undefined, context.subscriptions); 
+
+    this.verifyTa = function verify (uName) {
+        // check if the entered username matches a TA profile in the database
+        console.log('VERIFYING ' + uName);
+
+        // attempt to load the TA list from file 
+        try {
+            console.log('Loading TA profile list');
+            var fileContent = fs.readFileSync('./modules.txt').toString();
+            var fileObj = JSON.parse(fileContent);
+        }
+        catch (e) {
+            console.log('No data found, please perform first setup with modAdmin screen.'); 
+        }
+
+        var profiles = [] 
+        for (var i in fileObj.TAs){
+            profiles.push(fileObj.TAs[i].userName);
+        }
+
+        if (profiles.length < 1){
+            console.log('TA profile list is empty!');
+        }
+
+        if (profiles.includes(uName)){
+            console.log('Verification approved');
+            
+            // create TA screen object 
+            var taScreen = new TaScreen(screen);  
+        } 
+    };
+
+// TA screen object 
+function TaScreen(screen) {
+    
+    console.log('CAlling TA HTML');
+    screen.webview.html = htmlStuff.getTaScreen();
+}
 
 // module admin object 
 function ModuleAdmin () {
