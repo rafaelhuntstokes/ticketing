@@ -601,10 +601,98 @@ function getTaScreen() {
 	return `<!DOCTYPE html>
 	<html lang="en">
 		<head>
-			<h1> Welcome! </h1>
+			<style>
+
+				/* Header/Logo Title */
+				.header {
+					padding: 0px;
+					text-align: center;
+					background: DodgerBlue;
+					color: white;
+					font-size: 30px;
+					margin: 0px;
+				}
+
+				body {
+					background-color: rgb(60,99,201);
+				}
+				
+				table, th, td {
+					border: 1px solid white;
+				}
+
+				#tableTA {
+					width: 50%;
+					margin: auto;
+					color: white;
+				}
+			</style>
+
+			<script> 
+				const vscode = acquireVsCodeApi();
+				
+				function makeTitle(userName) {
+					// make title 
+					var title = document.getElementById('titleText');
+					var text = document.createTextNode("Welcome " + userName);
+					
+					title.appendChild(text); 
+
+				}	
+			</script>
+
+			<div class="header" id="title">
+				
+				<script>
+					window.addEventListener('message', event => {
+						var message = event.data; 
+					
+						switch (message.command) {
+						
+							case 'title':
+							// function call to generate title  
+							makeTitle(message.user); 
+						}
+					});
+				</script>
+
+				<h1 id="titleText"></h1>
+				<p>TA Management Screen</p>
+	  		</div>
+		
 		</head>
 
 		<body>
+			<div id="enrolledContainer">
+				<table id="tableTA">
+					<tr>
+						<th colspan="3">Enrolled Modules</th>
+					</tr>
+					<tr>
+						<th>Module Name</th>
+						<th>Module Code</th>
+						<th>Request Queue</th>
+					</tr>
+				</table>
+			</div>
+
+			<script>
+				// obtain a list of the enrolled modules and add them to the table 
+				vscode.postMessage({command: 'enrollmentData'});
+
+				// obtain response
+				window.addEventListener('message', event => {
+					var message = event.data; 
+
+					// check enrollment list 
+					var enrollment = message.enrollment; 
+					var number = enrollment.length; 
+					if (number  1){
+
+					}
+
+				}) 
+			</script>
 		</body>
 	</html>`; 
 }
@@ -612,3 +700,4 @@ function getTaScreen() {
 
 // set up exports for module
 module.exports = { getWelcomeScreen, getModScreen, getTaScreen }
+

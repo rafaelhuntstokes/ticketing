@@ -46,15 +46,40 @@ function Welcome (context) {
             console.log('Verification approved');
             
             // create TA screen object 
-            var taScreen = new TaScreen(screen);  
+            var taScreen = new TaScreen(screen, uName);  
         } 
     };
 
 // TA screen object 
-function TaScreen(screen) {
+function TaScreen(screen, userName) {
     
-    console.log('CAlling TA HTML');
+    // update HTML to display TA screen 
     screen.webview.html = htmlStuff.getTaScreen();
+
+    // class attributes
+    var fileContent = fs.readFileSync('./modules.txt').toString();
+    this.modulesList = JSON.parse(fileContent);
+    this.user = userName;
+    
+
+    // post message the username used to trigger screen
+    screen.webview.postMessage({command: 'title', user: userName}); 
+
+    // listen for request for enrollment details 
+    screen.webview.onDidReceiveMessage(message => {switch(message.command){case 'enrollmentData': this.enrolled(); 
+    return;}}, undefined, context.subscriptions);
+
+    this.enrolled = function enrolled () {
+        // obtain list of enrolled modules (if any)
+        for (var i in this.modulesList.TAs){
+            var enrolledList = this.modulesList.TAs[i].userName;
+            if (enrolledList == this.user){
+                screen.webview.postMessage({enrollment: enrolledList}); 
+            break; 
+            }
+        }
+    };
+     
 }
 
 // module admin object 

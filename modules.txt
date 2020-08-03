@@ -24,18 +24,6 @@
    "fModuleReqType": "Maths ...",
    "gModuleGroups": "1",
    "hModuleHrs": "500"
-  },
-  {
-   "aModuleName": "Intro to Compsci",
-   "bModuleCode": "COMPSCI1088",
-   "cModuleAdmins": "Turing",
-   "dModuleTAs": [
-    "Rafael"
-   ],
-   "eModuleStudents": "100",
-   "fModuleReqType": "Bugs ...",
-   "gModuleGroups": "1",
-   "hModuleHrs": "500"
   }
  ],
  "TAs": [
@@ -43,7 +31,6 @@
    "userName": "Rafael",
    "enrolled": [
     "Introduction to Biochemistry",
-    "Intro to Compsci",
     "Particle Physics"
    ]
   },
@@ -52,6 +39,10 @@
    "enrolled": [
     "Introduction to Biochemistry"
    ]
+  },
+  {
+   "userName": "Marcus",
+   "enrolled": []
   }
  ]
 }
