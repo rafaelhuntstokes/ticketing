@@ -1,23 +1,77 @@
 {
  "modules": [
   {
-   "aModuleName": "TEST",
-   "bModuleCode": "TEST",
-   "cModuleAdmins": "TEST",
+   "aModuleName": "Introduction to Biochemistry",
+   "bModuleCode": "BIOL1001",
+   "cModuleAdmins": "Crick",
    "dModuleTAs": [
     "Rafael"
    ],
-   "eModuleStudents": "TEST",
-   "fModuleReqType": "TEST",
-   "gModuleGroups": "TEST",
-   "hModuleHrs": "TEST"
+   "eModuleStudents": "200",
+   "fModuleReqType": "DNA . . .",
+   "gModuleGroups": "1",
+   "hModuleHrs": "500"
+  },
+  {
+   "aModuleName": "Quantum",
+   "bModuleCode": "PHAS1009",
+   "cModuleAdmins": "Feynman",
+   "dModuleTAs": [
+    "Rafael"
+   ],
+   "eModuleStudents": "20",
+   "fModuleReqType": "Too hard ...",
+   "gModuleGroups": "1",
+   "hModuleHrs": "500"
+  },
+  {
+   "aModuleName": "Particle Physics",
+   "bModuleCode": "PHAS1069",
+   "cModuleAdmins": "Higgs",
+   "dModuleTAs": [
+    "Rafael"
+   ],
+   "eModuleStudents": "35",
+   "fModuleReqType": "Maths ...",
+   "gModuleGroups": "1",
+   "hModuleHrs": "500"
+  },
+  {
+   "aModuleName": "Intro to Compsci",
+   "bModuleCode": "COMPSCI1088",
+   "cModuleAdmins": "Turing",
+   "dModuleTAs": [
+    "Rafael",
+    "Rafael"
+   ],
+   "eModuleStudents": "100",
+   "fModuleReqType": "Bugs ...",
+   "gModuleGroups": "1",
+   "hModuleHrs": "500"
+  },
+  {
+   "aModuleName": "General Relativity",
+   "bModuleCode": "PHAS9999",
+   "cModuleAdmins": "Einstein",
+   "dModuleTAs": [
+    "Rafael"
+   ],
+   "eModuleStudents": "100",
+   "fModuleReqType": "Hurts my brain...",
+   "gModuleGroups": "1",
+   "hModuleHrs": "1000"
   }
  ],
  "TAs": [
   {
    "userName": "Rafael",
    "enrolled": [
-    "TEST"
+    "Introduction to Biochemistry",
+    "Quantum",
+    "Particle Physics",
+    "Intro to Compsci",
+    "General Relativity",
+    "Intro to Compsci"
    ]
   }
  ]

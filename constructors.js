@@ -64,7 +64,7 @@ function ModuleAdmin () {
             var fileContent = fs.readFileSync('./modules.txt').toString();
             console.log('parsing JSON file to JS object. . .');
             var fileObj = JSON.parse(fileContent);
-            console.log('Success! Modules are: ' + JSON.stringify(fileObj.modules));
+            console.log('Successfully loaded modules');
 
             return fileObj; 
         }
@@ -158,7 +158,7 @@ function ModuleAdmin () {
         // check if username already exists 
         // loop through all the TAs
         var exists = 'false'; 
-        console.log('Input username: ' +  userName + '\n Existing names: ' + Object.values(this.modulesList.TAs));
+        console.log('Input username: ' +  userName + '\n Existing names: ' + JSON.stringify(Object.keys(this.modulesList.TAs)));
         for (var i in this.modulesList.TAs) {
             if (this.modulesList.TAs[i].userName == userName){
                 //if yes, append module name to list 
@@ -172,31 +172,32 @@ function ModuleAdmin () {
                 }
                 
                 exists = 'true'; 
-                console.log('flag value is: ' + exists);
                 break;
             }
         };
-        console.log('flag value is: ' + exists);
         if (exists == 'false') {
             // create new TA profile 
             console.log('TA does not exist!');
-            console.log(modToAdd);
+            console.log('modules to add: ' + modToAdd);
             var newTA = {
                 "userName" : userName,
                 "enrolled" : modToAdd
             }; 
-            console.log(this.modulesList.TAs);
+            console.log('Previous TA profile list: ' + this.modulesList.TAs);
             this.modulesList['TAs'].push(newTA);
             
-            console.log(this.modulesList.TAs);
+            console.log('New TA profile list: ' + JSON.stringify(this.modulesList.TAs));
         }; 
 
         // add TA username to module object tracker as well 
-        for (i in this.modulesList.modules){
-            if (this.modulesList.modules[i].aModuleName == modToAdd){
-                this.modulesList.modules[i].dModuleTAs.push(userName); 
-            } 
-        }
+        for (var i in this.modulesList.modules){
+            for (var j in modToAdd){
+                if (this.modulesList.modules[i].aModuleName == modToAdd[j]){
+                    console.log('Adding ' + userName + ' to module ' + JSON.stringify(this.modulesList.modules[i].aModuleName));
+                    this.modulesList.modules[i].dModuleTAs.push(userName); 
+                };
+            }; 
+        };
 
         // write updates to the file 
         fs.writeFileSync('./modules.txt', JSON.stringify(this.modulesList, null, ' ')); 
