@@ -116,9 +116,6 @@ function ModuleAdmin () {
     }; 
 
     this.remove = function removeModule (info) {
-        
-        console.log('remove index: ' + info); 
-
         // remove desired module from the JSON file list
         // find module name to be removed
         var name = this.modulesList.modules[info].aModuleName
@@ -170,9 +167,25 @@ function ModuleAdmin () {
 
                 // modToAdd is a list, so need to extract the values from it 
                 // and push these values to the 'enrolled' key list
+                var duplicate = [] 
                 for (var j in modToAdd){
                     var add = modToAdd[j]; 
-                    this.modulesList.TAs[i].enrolled.push(add); 
+        
+                    // check that TA isn't already enrolled      
+                    if (this.modulesList.TAs[i].enrolled.includes(modToAdd[j])){
+                        console.log('TA is already enrolled on module ' + modToAdd[j]);
+                        
+                        // record that it's a duplicate
+                        duplicate.push(true); 
+                    }
+                    else {
+                        // add module to TA enrolled list
+                        this.modulesList.TAs[i].enrolled.push(add);
+
+                        // record that it is not duplicated 
+                        duplicate.push(false); 
+                    };
+                     
                 }
                 
                 exists = 'true'; 
@@ -191,12 +204,17 @@ function ModuleAdmin () {
             this.modulesList['TAs'].push(newTA);
             
             console.log('New TA profile list: ' + JSON.stringify(this.modulesList.TAs));
+
+            // set up duplicate list with FALSE as all entires (since making new TA profile)
+            var length = modToAdd.length; 
+            duplicate = Array(length).fill(false);
         }; 
 
         // add TA username to module object tracker as well 
+        console.log('Duplicate list: ' + duplicate);
         for (var i in this.modulesList.modules){
             for (var j in modToAdd){
-                if (this.modulesList.modules[i].aModuleName == modToAdd[j]){
+                if (this.modulesList.modules[i].aModuleName == modToAdd[j] && duplicate[j] == false){
                     console.log('Adding ' + userName + ' to module ' + JSON.stringify(this.modulesList.modules[i].aModuleName));
                     this.modulesList.modules[i].dModuleTAs.push(userName); 
                 };
