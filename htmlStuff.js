@@ -601,6 +601,8 @@ function getTaScreen() {
 	return `<!DOCTYPE html>
 	<html lang="en">
 		<head>
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 			<style>
 
 				/* Header/Logo Title */
@@ -626,6 +628,15 @@ function getTaScreen() {
 					margin: auto;
 					color: white;
 				}
+
+				.button {
+					background-color: DodgerBlue; /* Blue background */
+		  			border: none; /* Remove borders */
+		  			color: white; /* White text */
+		  			padding: 12px 16px; /* Some padding */
+		  			font-size: 16px; /* Set a font size */
+		  			cursor: pointer; /* Mouse pointer on hover */
+				} 
 			</style>
 
 			<script> 
@@ -666,11 +677,10 @@ function getTaScreen() {
 			<div id="enrolledContainer">
 				<table id="tableTA">
 					<tr>
-						<th colspan="3">Enrolled Modules</th>
+						<th colspan="2">Enrolled Modules</th>
 					</tr>
 					<tr>
 						<th>Module Name</th>
-						<th>Module Code</th>
 						<th>Request Queue</th>
 					</tr>
 				</table>
@@ -685,19 +695,61 @@ function getTaScreen() {
 					var message = event.data; 
 
 					// check enrollment list 
-					var enrollment = message.enrollment; 
+					switch (message.command) {
+					case 'enroll': 
+					var enrollment = message.enrollment;
+					console.log('modules enrolled: ' + enrollment); 
 					var number = enrollment.length; 
-					if (number  1){
-
+					if (number < 1){
+						// not enrolled on anything
+						var table = document.getElementById('tableTA');
+						var row = table.insertRow(-1); 
+						var data = document.createElement("th");
+						data.setAttribute("colspan", "2");
+						var text = document.createTextNode("Not enrolled on any modules.");
+						data.appendChild(text);
+						row.appendChild(data);
 					}
+					else {
+						// display the modules enrolled
+						for (var i in enrollment){
+							var table = document.getElementById('tableTA'); 
+							var row = table.insertRow(-1); 
+						
+							var cell = row.insertCell(-1);
+							var data = document.createElement('td');
+							var text = document.createTextNode(enrollment[i]);
+							data.appendChild(text); 
+							cell.appendChild(data); 
 
-				}) 
+							// second cell 
+							var queueBtn = document.createElement('button'); 
+							queueBtn.innerHTML = 'Launch request queue'; 
+							queueBtn.setAttribute('class','fa fa-desktop button'); 
+							cell2 = row.insertCell(-1);
+							cell2.appendChild(queueBtn);
+
+
+						}
+					}
+				}
+
+				});
+
+				function back() {
+					vscode.postMessage({command: 'back'}); 
+				}
 			</script>
+
+			<div>
+				<button class="button" onclick="back()"><i class="fa fa-undo"></i> Back</button>
+			</div>
+			
 		</body>
 	</html>`; 
 }
 
 
 // set up exports for module
-module.exports = { getWelcomeScreen, getModScreen, getTaScreen }
+module.exports = { getWelcomeScreen, getModScreen, getTaScreen };
 

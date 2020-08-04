@@ -69,12 +69,18 @@ function TaScreen(screen, userName) {
     screen.webview.onDidReceiveMessage(message => {switch(message.command){case 'enrollmentData': this.enrolled(); 
     return;}}, undefined, context.subscriptions);
 
+    // listen for command to return to welcome screen
+    screen.webview.onDidReceiveMessage(message => {switch(message.command){case 'back': screen.webview.html = htmlStuff.getWelcomeScreen(); 
+    return;}}, undefined, context.subscriptions);
+
     this.enrolled = function enrolled () {
         // obtain list of enrolled modules (if any)
+        var info = []; 
         for (var i in this.modulesList.TAs){
             var enrolledList = this.modulesList.TAs[i].userName;
             if (enrolledList == this.user){
-                screen.webview.postMessage({enrollment: enrolledList}); 
+                var modEnrolled = this.modulesList.TAs[i].enrolled; 
+                screen.webview.postMessage({command: 'enroll', enrollment: modEnrolled}); 
             break; 
             }
         }
