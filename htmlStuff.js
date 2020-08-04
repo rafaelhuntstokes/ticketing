@@ -648,8 +648,20 @@ function getTaScreen() {
 					var text = document.createTextNode("Welcome " + userName);
 					
 					title.appendChild(text); 
-
 				}	
+
+				// obtain response
+				window.addEventListener('message', event =>  {
+					var message = event.data; 
+						
+					// check enrollment list 
+					switch (message.command) {
+						case 'enroll':
+							var enrollment = message.enrollment;
+							makeTaTable(enrollment); 
+					}
+				}	
+				);
 			</script>
 
 			<div class="header" id="title">
@@ -687,20 +699,10 @@ function getTaScreen() {
 			</div>
 
 			<script>
-				// obtain a list of the enrolled modules and add them to the table 
-				vscode.postMessage({command: 'enrollmentData'});
-
-				// obtain response
-				window.addEventListener('message', event => {
-					var message = event.data; 
-
-					// check enrollment list 
-					switch (message.command) {
-					case 'enroll': 
-					var enrollment = message.enrollment;
-					console.log('modules enrolled: ' + enrollment); 
+				function makeTaTable (enrollment) {
+					console.log('called make table: ' + enrollment); 
 					var number = enrollment.length; 
-					if (number < 1){
+					if (number < 1) {
 						// not enrolled on anything
 						var table = document.getElementById('tableTA');
 						var row = table.insertRow(-1); 
@@ -712,7 +714,7 @@ function getTaScreen() {
 					}
 					else {
 						// display the modules enrolled
-						for (var i in enrollment){
+						for (var i in enrollment) {
 							var table = document.getElementById('tableTA'); 
 							var row = table.insertRow(-1); 
 						
@@ -728,15 +730,18 @@ function getTaScreen() {
 							queueBtn.setAttribute('class','fa fa-desktop button'); 
 							cell2 = row.insertCell(-1);
 							cell2.appendChild(queueBtn);
-
-
 						}
-					}
+					} 
 				}
 
-				});
-
+				// obtain a list of the enrolled modules and add them to the table 
+				//vscode.postMessage({command: 'enrollmentData'});
+				
 				function back() {
+					// delete the table content 
+					var table = document.getElementById('enrolledContainer'); 
+					table.parentNode.removeChild(table);
+					console.log('table deleted');
 					vscode.postMessage({command: 'back'}); 
 				}
 			</script>

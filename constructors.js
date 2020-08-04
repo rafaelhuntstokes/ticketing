@@ -46,12 +46,12 @@ function Welcome (context) {
             console.log('Verification approved');
             
             // create TA screen object 
-            var taScreen = new TaScreen(screen, uName);  
+            var taScreen = new TaScreen(uName);  
         } 
     };
 
 // TA screen object 
-function TaScreen(screen, userName) {
+function TaScreen(userName) {
     
     // update HTML to display TA screen 
     screen.webview.html = htmlStuff.getTaScreen();
@@ -61,31 +61,29 @@ function TaScreen(screen, userName) {
     this.modulesList = JSON.parse(fileContent);
     this.user = userName;
     
-
     // post message the username used to trigger screen
     screen.webview.postMessage({command: 'title', user: userName}); 
-
-    // listen for request for enrollment details 
-    screen.webview.onDidReceiveMessage(message => {switch(message.command){case 'enrollmentData': this.enrolled(); 
-    return;}}, undefined, context.subscriptions);
 
     // listen for command to return to welcome screen
     screen.webview.onDidReceiveMessage(message => {switch(message.command){case 'back': screen.webview.html = htmlStuff.getWelcomeScreen(); 
     return;}}, undefined, context.subscriptions);
 
     this.enrolled = function enrolled () {
-        // obtain list of enrolled modules (if any)
-        var info = []; 
+        // obtain list of enrolled modules (if any) 
         for (var i in this.modulesList.TAs){
             var enrolledList = this.modulesList.TAs[i].userName;
             if (enrolledList == this.user){
                 var modEnrolled = this.modulesList.TAs[i].enrolled; 
+                console.log('sending enrollment info: ' + modEnrolled);
                 screen.webview.postMessage({command: 'enroll', enrollment: modEnrolled}); 
             break; 
             }
         }
-    };
-     
+    }; 
+    
+    // find all the enrolled modules and pass them back to the create table functions for 
+    // display in the HTML script 
+    this.enrolled(); 
 }
 
 // module admin object 
