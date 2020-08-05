@@ -8,7 +8,9 @@ This project was completed in just 2 weeks as a UCL Connected Learning Internshi
 - web design, including HTML, CSS formatting and JSON files
 - understanding of message passing, event triggers, DOM element manipulation and data handling via forms
 - ability to structure complex, multi-file coding projects logically  
-- knowledge of Visual Studio Code extension development 
+- knowledge of Visual Studio Code extension development
+
+This project was the first Javascript application I created.  
 
 ## Feature Demonstration 
 ![Demonstration of features](ticketing_demo.gif)
@@ -18,6 +20,7 @@ Current features:
   1. Module Administrators 
   2. Teaching assistants 
   3. Students (unfinished)
+
 - **Module Admin screen**, where super users may: 
   1. View the current list of module profiles, displaying the module name, code, administrators, assigned TAs, groups, request types and hours. 
   2. Remove modules from the database 
@@ -25,17 +28,12 @@ Current features:
   4. Add new modules to the database 
   5. Register new teaching assistant (TA) profiles  
   6. Table display is updated dynamically as additions/removals are made
+
 - **TA screen**, where teaching assistants may:
   1. Login via modal pop-up using their username
   2. See a personalised list of the modules they are enrolled on  
 
 ## Installation
-
-### Dependencies 
-- [Node.js](https://nodejs.org/en/) 
-- [Git](https://git-scm.com/)
-- [Yeoman](https://yeoman.io/)
-- [VSCode extension generator](https://www.npmjs.com/package/generator-code)
 
 1. `git clone https://github.com/rafaelhuntstokes/ticketing.git` 
 2. Open in VSCode 
@@ -45,22 +43,33 @@ Current features:
 
 ## Extension Anatomy 
 
-The extension was setup by using **Yeoman** to provide a scaffold, following [this tutorial](https://code.visualstudio.com/api/get-started/your-first-extension). 
-The important files are: 
+The extension was setup by using **Yeoman** to provide a scaffold, following [this tutorial](https://code.visualstudio.com/api/get-started/your-first-extension). To create a new extension, you need to install the following dependencies:
+- [Node.js](https://nodejs.org/en/) 
+- [Git](https://git-scm.com/)
+- [Yeoman](https://yeoman.io/)
+- [VSCode extension generator](https://www.npmjs.com/package/generator-code)
 
-* htmlStuff.js      : which provides the HTML code for the webview
-* constructors.js   : javascript file which contains an Object for each screen and associated methods 
+The ticketing system is implemented through the following files: 
+
+* htmlStuff.js      : provides the HTML code for the webview and sends commands to constructors.js when buttons are clicked etc.
+* constructors.js   : javascript file which contains an Object for each screen and the methods to handle events from the UI   
 * extension.js      : javascript file which activates extension 
-* modules.txt       : file which stores the JSON database 
+* modules.txt       : file which stores the JSON database, including the modules and TAs 
 
-## Known and Predicted Issues
-
-* Table scroll issues (possibly) when adding lots of modules. 
-* HTML file is rife with inline javascript. Will refactor all this to a separate file / constructors soon.
-
-## Upcoming Tasks 
-* Adding more useful functionality to the module sessions. Implementing a calendar to select the date and times of lab session and save these in the ""database"".  
+## JSON Data Structure 
 
 
+## Known Issues
+ 
+- HTML file is rife with inline javascript. These functions should be refactored to a separate file and called using the `<script>` tag instead
+- **Module Admin**: intermittent issue where *Add TA* button creates a form with duplicated module options  
 
+## Suggested Future Development 
+
+- Create online database instead of JSON textfile 
+- Add superuser and module lead profiles, splitting Module Admin screen as it is now into these two user classes
+- Add ability to import student and TA profiles from file, such as .csv 
+- Add function to schedule module lab sessions and groups 
+- Add code to manage help request queue during live lab sessions, launched from a specific TA profile 
+- Create a webview page for students to submit their help requests to a specific session and mark them as complete
 -----------------------------------------------------------------------------------------------------------

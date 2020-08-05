@@ -8,7 +8,8 @@
     "Sajeda",
     "Jed",
     "newTA",
-    "James"
+    "James",
+    "kek"
    ],
    "eModuleStudents": "200",
    "fModuleReqType": "DNA . . .",
@@ -51,7 +52,7 @@
    "hModuleHrs": "500"
   },
   {
-   "aModuleName": "newMODULE",
+   "aModuleName": "new",
    "bModuleCode": "",
    "cModuleAdmins": "",
    "dModuleTAs": [],
@@ -112,6 +113,16 @@
     "Introduction to Biochemistry",
     "Quantum Mechanics",
     "Particle Physics"
+   ]
+  },
+  {
+   "userName": "",
+   "enrolled": []
+  },
+  {
+   "userName": "kek",
+   "enrolled": [
+    "Introduction to Biochemistry"
    ]
   }
  ]
