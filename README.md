@@ -1,6 +1,16 @@
-# ticketing README
+# Introduction to Lab Ticketing System
 
-A microsoft visual studio code extension providing a lab help-request ticketing system. Created as part of a UCL Connected Learning Internship 2020.
+A VSCode extension providing the basic structure for a UCL Computer Science lab ticketing system. Ultimately, the ticketing system will allow students to submit help requests to a queue, allowing teaching assistants to deal with issues in a more organised and timely fashion than a traditional "hands up" method. 
+
+This project was completed in just 2 weeks as a UCL Connected Learning Internship during summer 2020, under the supervision of Dr Ghita Kouadri Mostefaoui (UCL Department of Computer Science). It represents the start of a much larger project, to be completed by a future intern or as a finalist project. The following skills were developed:
+
+- fluency with Javascript 
+- web design, including HTML, CSS formatting and JSON files
+- understanding of message passing, event triggers, DOM element manipulation and data handling via forms
+- ability to structure complex, multi-file coding projects logically  
+
+## Demonstration 
+[Demonstration of features](ticketing_demo.gif)
 
 ## Features
 
@@ -17,7 +27,7 @@ The important files are:
 * extension.js      -- javascript file which activates extension 
 * modules.txt       -- file which stores the JSON module data
 
-## Requirements
+## Installation
 
 ## Extension Settings
 
