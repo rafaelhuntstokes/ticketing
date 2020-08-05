@@ -13,7 +13,7 @@ This project was completed in just 2 weeks as a UCL Connected Learning Internshi
 ![Demonstration of features](ticketing_demo.gif)
 
 Current features: 
-- **Welcome Screen*, which displays login options for: 
+- **Welcome Screen**, which displays login options for: 
   1. Module Administrators 
   2. Teaching assistants 
   3. Students (unfinished)
