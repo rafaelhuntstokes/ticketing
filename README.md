@@ -56,7 +56,31 @@ The ticketing system is implemented through the following files:
 
 ## JSON Data Structure 
 
+The app revolves around saving and retrieving the information contained in the `modules.txt` file. JSON was chosen as the format, as it offers an intuitive object-oriented format. The basic structure consists of two objects, **modules** and **TAs**: 
+```
+{"modules": [], 
+ "TAs"    : [] 
+ }
+```
+Each object is a list of sub objects, i.e `"modules"` is a list of module objects with a set of attributes. For example: 
+```
+"aModuleName": "Introduction to Biochemistry",
+"bModuleCode": "BIOL1001",
+"cModuleAdmins": "Crick",
+"dModuleTAs": ["Rafael", "Sajeda"],
+"eModuleStudents": "200",
+"fModuleReqType": "DNA . . .",
+"gModuleGroups": "1",
+"hModuleHrs": "500"    
+```
+The attributes start with a letter (a->h) to allow keys to be sorted alphabetically, which gets around the fact JSON objects are unordered. This is important when filling in the various tables to display the information. 
 
+The `TAs` object is also a list of sub-objects, with each being a TA profile created by the **Module Admin Screen**. An example structure is: 
+```
+"userName": "Rafael",
+"enrolled": ["Quantum", "Particle Physics"]
+```
+The `userName` attribute is used for the TA login verification and the `enrolled` attribute provides a link to the module objects they are enrolled to.
 ## Known Issues
  
 - HTML file is rife with inline javascript. These functions should be refactored to a separate file and called using the `<script>` tag instead
