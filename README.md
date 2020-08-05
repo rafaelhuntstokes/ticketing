@@ -10,7 +10,7 @@ This project was completed in just 2 weeks as a UCL Connected Learning Internshi
 - ability to structure complex, multi-file coding projects logically  
 
 ## Demonstration 
-[Demonstration of features](ticketing_demo.gif)
+![Demonstration of features](ticketing_demo.gif)
 
 ## Features
 
