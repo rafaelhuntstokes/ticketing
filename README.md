@@ -18,14 +18,14 @@ Current features:
   1. Module Administrators 
   2. Teaching assistants 
   3. Students (unfinished)
-- **Module Admin** screen, where super users may: 
+- **Module Admin screen**, where super users may: 
   1. View the current list of module profiles, displaying the module name, code, administrators, assigned TAs, groups, request types and hours. 
   2. Remove modules from the database 
   3. Edit module names and codes by clicking on the relevant table cells 
   4. Add new modules to the database 
   5. Register new teaching assistant (TA) profiles  
   6. Table display is updated dynamically as additions/removals are made
-- **TA** screen, where teaching assistants may:
+- **TA screen**, where teaching assistants may:
   1. Login via modal pop-up using their username
   2. See a personalised list of the modules they are enrolled on  
 
