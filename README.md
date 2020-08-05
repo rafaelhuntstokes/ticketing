@@ -31,20 +31,27 @@ Current features:
 
 ## Installation
 
+### Dependencies 
+- [Node.js](https://nodejs.org/en/) 
+- [Git](https://git-scm.com/)
+- [Yeoman](https://yeoman.io/)
+- [VSCode extension generator](https://www.npmjs.com/package/generator-code)
+
 1. `git clone https://github.com/rafaelhuntstokes/ticketing.git` 
 2. Open in VSCode 
 3. Go to file *extension.js, line 24* and change `process.chdir('c:/Users/Shadowbiscuit/Desktop/ticketing');` to your current working directory. This is necessary to save module information in a file within the extension folder instead of wherever VSCode is installed 
 4. Hit `F5` to launch **extension development host**
-5. Open the command pallet (`control + shift + p`) and run command **start ticket**
+5. Open the command pallet (`control + shift + p`) and run command **Start Ticket**
 
 ## Extension Anatomy 
 
- The important files are: 
+The extension was setup by using **Yeoman** to provide a scaffold, following [this tutorial](https://code.visualstudio.com/api/get-started/your-first-extension). 
+The important files are: 
 
-* htmlStuff.js      -- which provides the HTML code for the webview
-* constructors.js   -- javascript file with the methods to add, remove and edit modules & perform first time setup of JSON """database"""
-* extension.js      -- javascript file which activates extension 
-* modules.txt       -- file which stores the JSON module data
+* htmlStuff.js      : which provides the HTML code for the webview
+* constructors.js   : javascript file which contains an Object for each screen and associated methods 
+* extension.js      : javascript file which activates extension 
+* modules.txt       : file which stores the JSON database 
 
 ## Known and Predicted Issues
 
