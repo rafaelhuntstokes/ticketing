@@ -8,6 +8,7 @@ This project was completed in just 2 weeks as a UCL Connected Learning Internshi
 - web design, including HTML, CSS formatting and JSON files
 - understanding of message passing, event triggers, DOM element manipulation and data handling via forms
 - ability to structure complex, multi-file coding projects logically  
+- knowledge of Visual Studio Code extension development 
 
 ## Feature Demonstration 
 ![Demonstration of features](ticketing_demo.gif)
@@ -23,27 +24,27 @@ Current features:
   3. Edit module names and codes by clicking on the relevant table cells 
   4. Add new modules to the database 
   5. Register new teaching assistant (TA) profiles  
+  6. Table display is updated dynamically as additions/removals are made
 - **TA** screen, where teaching assistants may:
   1. Login via modal pop-up using their username
   2. See a personalised list of the modules they are enrolled on  
 
+## Installation
 
-* Users may click on any cell in the table to make edits easily. Press 'enter' when finished to save your changes. 
-* 'Add Module' button brings up a form to add module info, e.g. name, code, admins, num students ... etc. and saves 
-* Table displaying module info dynamically reloads to display new/edited/removed content 
+1. `git clone https://github.com/rafaelhuntstokes/ticketing.git` 
+2. Open in VSCode 
+3. Go to file *extension.js, line 24* and change `process.chdir('c:/Users/Shadowbiscuit/Desktop/ticketing');` to your current working directory. This is necessary to save module information in a file within the extension folder instead of wherever VSCode is installed 
+4. Hit `F5` to launch **extension development host**
+5. Open the command pallet (`control + shift + p`) and run command **start ticket**
 
-The important files are: 
+## Extension Anatomy 
+
+ The important files are: 
 
 * htmlStuff.js      -- which provides the HTML code for the webview
 * constructors.js   -- javascript file with the methods to add, remove and edit modules & perform first time setup of JSON """database"""
 * extension.js      -- javascript file which activates extension 
 * modules.txt       -- file which stores the JSON module data
-
-## Installation
-
-## Extension Settings
-
-* command Start Ticket from cmd pallet activates the extension. 
 
 ## Known and Predicted Issues
 
@@ -52,6 +53,7 @@ The important files are:
 
 ## Upcoming Tasks 
 * Adding more useful functionality to the module sessions. Implementing a calendar to select the date and times of lab session and save these in the ""database"".  
+
 
 
 -----------------------------------------------------------------------------------------------------------
