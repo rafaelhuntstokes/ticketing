@@ -2,15 +2,13 @@
 
 A VSCode extension providing the basic structure for a UCL Computer Science lab ticketing system. Ultimately, the ticketing system will allow students to submit help requests to a queue, allowing teaching assistants to deal with issues in a more organised and timely fashion than a traditional "hands up" method. 
 
-This project was completed in just 2 weeks as a UCL Connected Learning Internship during summer 2020, under the supervision of Dr Ghita Kouadri Mostefaoui (UCL Department of Computer Science). It represents the start of a much larger project, to be completed by a future intern or as a finalist project. The following skills were developed:
+This project was completed in just 2 weeks as a UCL Connected Learning Internship during summer 2020, under the supervision of Dr Ghita Kouadri Mostefaoui (UCL Department of Computer Science). It represents the start of a much larger project, to be completed by a future intern or as a finalist project. Starting with no knowledge of Javascript, I developed the following skills:
 
 - fluency with Javascript 
 - web design, including HTML, CSS formatting and JSON files
 - understanding of message passing, event triggers, DOM element manipulation and data handling via forms
 - ability to structure complex, multi-file coding projects logically  
 - knowledge of Visual Studio Code extension development
-
-This project was the first Javascript application I created.  
 
 ## Feature Demonstration 
 ![Demonstration of features](ticketing_demo.gif)
