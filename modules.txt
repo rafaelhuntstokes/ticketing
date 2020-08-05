@@ -6,7 +6,9 @@
    "cModuleAdmins": "Crick",
    "dModuleTAs": [
     "Sajeda",
-    "Jed"
+    "Jed",
+    "newTA",
+    "James"
    ],
    "eModuleStudents": "200",
    "fModuleReqType": "DNA . . .",
@@ -14,7 +16,7 @@
    "hModuleHrs": "500"
   },
   {
-   "aModuleName": "Quantum",
+   "aModuleName": "Quantum Physics",
    "bModuleCode": "PHAS1009",
    "cModuleAdmins": "Feynman",
    "dModuleTAs": [
@@ -22,7 +24,9 @@
     "Sajeda",
     "Marcus",
     "Ghita",
-    "Jed"
+    "Jed",
+    "newTA",
+    "James"
    ],
    "eModuleStudents": "20",
    "fModuleReqType": "Too hard ...",
@@ -37,7 +41,9 @@
     "Rafael",
     "Sajeda",
     "Ghita",
-    "Jed"
+    "Jed",
+    "newTA",
+    "James"
    ],
    "eModuleStudents": "35",
    "fModuleReqType": "Maths ...",
@@ -45,46 +51,14 @@
    "hModuleHrs": "500"
   },
   {
-   "aModuleName": "Intro to Compsci",
-   "bModuleCode": "COMPSCI1088",
-   "cModuleAdmins": "Turing",
-   "dModuleTAs": [
-    "Rafael",
-    "Sajeda",
-    "Ghita",
-    "Jed"
-   ],
-   "eModuleStudents": "100",
-   "fModuleReqType": "Bugs ...",
-   "gModuleGroups": "1",
-   "hModuleHrs": "500"
-  },
-  {
-   "aModuleName": "General Relativity",
-   "bModuleCode": "PHAS9999",
-   "cModuleAdmins": "Einstein",
-   "dModuleTAs": [
-    "Sajeda",
-    "Ghita",
-    "Jed",
-    "James"
-   ],
-   "eModuleStudents": "100",
-   "fModuleReqType": "Hurts my brain...",
-   "gModuleGroups": "1",
-   "hModuleHrs": "1000"
-  },
-  {
-   "aModuleName": "TEST",
-   "bModuleCode": "TEST",
-   "cModuleAdmins": "TEST",
-   "dModuleTAs": [
-    "James"
-   ],
-   "eModuleStudents": "TEST",
-   "fModuleReqType": "TEST",
-   "gModuleGroups": "TEST",
-   "hModuleHrs": "TEST"
+   "aModuleName": "newMODULE",
+   "bModuleCode": "",
+   "cModuleAdmins": "",
+   "dModuleTAs": [],
+   "eModuleStudents": "",
+   "fModuleReqType": "",
+   "gModuleGroups": "",
+   "hModuleHrs": ""
   }
  ],
  "TAs": [
@@ -92,8 +66,7 @@
    "userName": "Rafael",
    "enrolled": [
     "Quantum",
-    "Particle Physics",
-    "Intro to Compsci"
+    "Particle Physics"
    ]
   },
   {
@@ -101,9 +74,7 @@
    "enrolled": [
     "Introduction to Biochemistry",
     "Quantum",
-    "Particle Physics",
-    "Intro to Compsci",
-    "General Relativity"
+    "Particle Physics"
    ]
   },
   {
@@ -116,9 +87,7 @@
    "userName": "Ghita",
    "enrolled": [
     "Quantum",
-    "Particle Physics",
-    "Intro to Compsci",
-    "General Relativity"
+    "Particle Physics"
    ]
   },
   {
@@ -126,16 +95,23 @@
    "enrolled": [
     "Introduction to Biochemistry",
     "Quantum",
-    "Particle Physics",
-    "Intro to Compsci",
-    "General Relativity"
+    "Particle Physics"
    ]
   },
   {
    "userName": "James",
    "enrolled": [
-    "General Relativity",
-    "TEST"
+    "Introduction to Biochemistry",
+    "Quantum Physics",
+    "Particle Physics"
+   ]
+  },
+  {
+   "userName": "newTA",
+   "enrolled": [
+    "Introduction to Biochemistry",
+    "Quantum Mechanics",
+    "Particle Physics"
    ]
   }
  ]
